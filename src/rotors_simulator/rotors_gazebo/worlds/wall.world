@@ -37,9 +37,6 @@
     <include>
       <uri>model://textured_boundary</uri>
     </include>
-    <include>
-      <uri>model://golf</uri>
-    </include>
 
     
     <!-- Only require one ROS interface plugin per world, as any other plugin can connect a Gazebo
