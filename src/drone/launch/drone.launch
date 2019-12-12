@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="sim"         default="false"/>
+
+  <group if="$(arg sim)">
+    <include file="$(find bebop_driver)/launch/bebop_node.launch" >
+      <arg name="ip"       value="10.202.0.1"/>
+    </include>
+  </group>
+  
+  <group unless="$(arg sim)">
+    <include file="$(find bebop_driver)/launch/bebop_node.launch" >
+      <arg name="ip"       value="192.168.42.1"/>
+    </include>
+  </group>
+
+  <node pkg="control" name="control" type="control_real.py" output="screen">
+  </node>
+  <node pkg="car_tracking" name="car_tracking" type="car_tracking" output="screen">
+  </node>
+  <node pkg="rqt_image_view" type="rqt_image_view" name="rqt_image_view">
+  </node>
+</launch>

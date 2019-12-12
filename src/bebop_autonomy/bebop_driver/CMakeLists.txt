@@ -86,6 +86,8 @@ target_link_libraries(bebop
 )
 
 add_dependencies(bebop ${PROJECT_NAME}_gencfg)
+add_dependencies(bebop ${catkin_EXPORTED_TARGETS})
+
 
 add_library(bebop_driver_nodelet src/bebop_driver_nodelet.cpp)
 target_link_libraries(bebop_driver_nodelet
